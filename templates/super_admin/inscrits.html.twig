@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'super_admin.inscrits.titre'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'super_admin.inscrits.titre'|trans }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'inscription.nom'|trans }}</th>
+                <th>{{ 'inscription.prenom'|trans }}</th>
+                <th>{{ 'inscription.email'|trans }}</th>
+                <th>{{ 'super_admin.inscrits.date'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.dateInscription|date('d/m/Y H:i') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'super_admin.inscrits.aucun'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

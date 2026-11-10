@@ -1,3 +1,72 @@
 body {
-    background-color: skyblue;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+nav {
+    padding: 15px;
+    background-color: lightgray;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+nav a {
+    margin-right: 15px;
+}
+
+a {
+    color: navy;
+}
+
+table {
+    width: 100%;
+    margin: 15px 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid lightgray;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+}
+
+input, textarea {
+    padding: 5px;
+}
+
+button {
+    padding: 5px 15px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+form ul {
+    color: red;
+}
+
+.success {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: green;
+}
+
+.error {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: red;
 }

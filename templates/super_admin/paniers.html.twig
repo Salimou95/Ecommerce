@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'super_admin.paniers.titre'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'super_admin.paniers.titre'|trans }}</h1>
+
+    {% for panier in paniers %}
+        <h2>{{ 'super_admin.paniers.panier'|trans }} #{{ panier.id }}</h2>
+        <p>{{ 'super_admin.utilisateur'|trans }} : {{ panier.utilisateur.prenom }} {{ panier.utilisateur.nom }} ({{ panier.utilisateur.email }})</p>
+
+        {{ include('panier/_tableau.html.twig', {'suppression': false}) }}
+    {% else %}
+        <p>{{ 'super_admin.paniers.aucun'|trans }}</p>
+    {% endfor %}
+{% endblock %}

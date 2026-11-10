@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'compte.commande'|trans }} #{{ panier.id }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'compte.commande'|trans }} #{{ panier.id }}</h1>
+
+    <p>{{ 'compte.date'|trans }} : {{ panier.dateAchat|date('d/m/Y H:i') }}</p>
+
+    {{ include('panier/_tableau.html.twig', {'suppression': false}) }}
+
+    <a href="{{ path('app_compte') }}">{{ 'compte.retour'|trans }}</a>
+{% endblock %}

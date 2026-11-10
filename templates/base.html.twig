@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
         {% endblock %}
@@ -19,6 +19,42 @@
         {% endif %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav>
+            <a href="{{ path('app_accueil') }}">{{ 'menu.accueil'|trans }}</a>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('app_produit_ajouter') }}">{{ 'menu.ajouter_produit'|trans }}</a>
+            {% endif %}
+
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <a href="{{ path('app_super_admin_paniers') }}">{{ 'menu.paniers_non_achetes'|trans }}</a>
+                <a href="{{ path('app_super_admin_inscrits') }}">{{ 'menu.inscrits_du_jour'|trans }}</a>
+            {% endif %}
+
+            {% if app.user %}
+                <a href="{{ path('app_panier') }}">{{ 'menu.panier'|trans }}</a>
+                <a href="{{ path('app_compte') }}">{{ 'menu.compte'|trans }}</a>
+                <a href="{{ path('app_deconnexion') }}">{{ 'menu.deconnexion'|trans }}</a>
+            {% else %}
+                <a href="{{ path('app_inscription') }}">{{ 'menu.inscription'|trans }}</a>
+                <a href="{{ path('app_connexion') }}">{{ 'menu.connexion'|trans }}</a>
+            {% endif %}
+
+            {% if app.request.attributes.get('_route') %}
+                {% for langue in ['fr', 'en'] %}
+                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': langue})) }}">{{ ('langue.' ~ langue)|trans }}</a>
+                {% endfor %}
+            {% endif %}
+        </nav>
+
+        <main>
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="{{ type }}">{{ message|trans }}</div>
+                {% endfor %}
+            {% endfor %}
+
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.nom }}{% endblock %}
+
+{% block body %}
+    <h1>{{ produit.nom }}</h1>
+
+    {% if produit.photo %}
+        <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="{{ produit.nom }}" width="300">
+    {% endif %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>{{ 'produit.description'|trans }}</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'produit.prix'|trans }}</th>
+                <td>{{ produit.prix }} €</td>
+            </tr>
+            <tr>
+                <th>{{ 'produit.stock'|trans }}</th>
+                <td>{{ produit.stock }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if app.user %}
+        {{ form_start(formPanier) }}
+            {{ form_row(formPanier.quantite) }}
+            <button class="btn">{{ 'panier.ajouter'|trans }}</button>
+        {{ form_end(formPanier) }}
+    {% endif %}
+
+    <a href="{{ path('app_accueil') }}">{{ 'produit.retour_liste'|trans }}</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_produit_modifier', {'id': produit.id}) }}">{{ 'produit.modifier'|trans }}</a>
+
+        {{ include('produit/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

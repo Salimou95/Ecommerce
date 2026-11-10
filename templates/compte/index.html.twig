@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'compte.titre'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'compte.titre'|trans }}</h1>
+
+    <h2>{{ 'compte.profil'|trans }}</h2>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ 'compte.enregistrer'|trans }}</button>
+    {{ form_end(form) }}
+
+    <h2>{{ 'compte.historique'|trans }}</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'compte.commande'|trans }}</th>
+                <th>{{ 'panier.montant'|trans }}</th>
+                <th>{{ 'compte.date'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            {% set montant = 0 %}
+            {% for contenu in commande.contenus %}
+                {% set montant = montant + contenu.produit.prix * contenu.quantite %}
+            {% endfor %}
+            <tr>
+                <td><a href="{{ path('app_compte_commande', {'id': commande.id}) }}">#{{ commande.id }}</a></td>
+                <td>{{ montant|number_format(2, ',', ' ') }} €</td>
+                <td>{{ commande.dateAchat|date('d/m/Y H:i') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">{{ 'compte.aucune_commande'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

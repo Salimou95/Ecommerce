@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'panier.titre'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'panier.titre'|trans }}</h1>
+
+    {% if panier and panier.contenus is not empty %}
+        {{ include('panier/_tableau.html.twig', {'suppression': true}) }}
+
+        <form method="post" action="{{ path('app_panier_acheter') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('acheter') }}">
+            <button class="btn">{{ 'panier.acheter'|trans }}</button>
+        </form>
+    {% else %}
+        <p>{{ 'panier.vide'|trans }}</p>
+    {% endif %}
+{% endblock %}

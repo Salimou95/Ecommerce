@@ -1,0 +1,37 @@
+{% set total = 0 %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>{{ 'produit.nom'|trans }}</th>
+            <th>{{ 'panier.quantite'|trans }}</th>
+            <th>{{ 'produit.prix'|trans }}</th>
+            <th>{{ 'panier.montant'|trans }}</th>
+            {% if suppression %}
+                <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for contenu in panier.contenus %}
+        {% set montant = contenu.produit.prix * contenu.quantite %}
+        {% set total = total + montant %}
+        <tr>
+            <td>{{ contenu.produit.nom }}</td>
+            <td>{{ contenu.quantite }}</td>
+            <td>{{ contenu.produit.prix|number_format(2, ',', ' ') }} €</td>
+            <td>{{ montant|number_format(2, ',', ' ') }} €</td>
+            {% if suppression %}
+                <td>
+                    <form method="post" action="{{ path('app_panier_supprimer', {'id': contenu.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('supprimer' ~ contenu.id) }}">
+                        <button class="btn">{{ 'panier.supprimer'|trans }}</button>
+                    </form>
+                </td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>{{ 'panier.total'|trans }} : {{ total|number_format(2, ',', ' ') }} €</p>

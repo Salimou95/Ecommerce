@@ -9,3 +9,14 @@
 
 controllers:
     resource: routing.controllers
+    prefix: /{_locale}
+    requirements:
+        _locale: fr|en
+
+# Redirige / vers la page d'accueil en français
+racine:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+    defaults:
+        route: app_accueil
+        _locale: fr

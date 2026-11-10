@@ -1,0 +1,4 @@
+inscription:
+    email_deja_utilise: There is already an account with this email.
+    mot_de_passe_vide: Please enter a password.
+    mot_de_passe_court: Your password should be at least {{ limit }} characters.

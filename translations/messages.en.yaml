@@ -1,0 +1,111 @@
+langue:
+    fr: Français
+    en: English
+
+menu:
+    accueil: Home
+    ajouter_produit: Add a product
+    inscription: Sign up
+    connexion: Log in
+    deconnexion: Log out
+    panier: Cart
+    compte: My account
+    paniers_non_achetes: Unpaid carts
+    inscrits_du_jour: Today's sign-ups
+
+erreur:
+    retour: Back to the home page
+    404:
+        titre: Page not found
+        message: The page you are looking for does not exist.
+    403:
+        titre: Access denied
+        message: You do not have permission to access this page.
+    autre:
+        titre: An error occurred
+        message: Something went wrong, please try again later.
+
+super_admin:
+    utilisateur: User
+    paniers:
+        titre: Unpaid carts
+        panier: Cart
+        aucun: No carts in progress.
+    inscrits:
+        titre: Users registered today
+        date: Registration date
+        aucun: No sign-ups today.
+
+compte:
+    titre: My account
+    profil: My profile
+    enregistrer: Save
+    historique: Order history
+    commande: Order
+    date: Date
+    aucune_commande: No orders
+    retour: Back to my account
+    flash:
+        modifie: Your profile has been updated.
+        modification_echec: Profile update failed, please check the form.
+
+panier:
+    titre: My cart
+    vide: Your cart is empty.
+    quantite: Quantity
+    montant: Amount
+    total: Total
+    ajouter: Add to cart
+    supprimer: Remove
+    acheter: Buy
+    flash:
+        ajoute: The product has been added to your cart.
+        ajout_echec: Could not add to cart, please check the quantity.
+        stock_insuffisant: Not enough stock for this quantity.
+        supprime: The product has been removed from your cart.
+        suppression_echec: The product could not be removed.
+        achete: Thank you, your order has been placed.
+        achat_echec: The purchase failed.
+        stock_insuffisant_achat: The purchase failed, one of the products is out of stock.
+
+connexion:
+    titre: Log in
+    deja_connecte: You are logged in as %email%.
+    deconnexion: Log out
+    email: Email
+    mot_de_passe: Password
+    bouton: Log in
+
+inscription:
+    titre: Sign up
+    nom: Last name
+    prenom: First name
+    email: Email
+    mot_de_passe: Password
+    bouton: Sign up
+    flash:
+        succes: Your account has been created, you can now log in.
+        echec: Registration failed, please check the form.
+
+produit:
+    liste: Products
+    aucun: No products
+    ajouter: Add a product
+    modifier: Edit
+    modifier_titre: Edit %nom%
+    supprimer: Delete
+    confirmer_suppression: Are you sure you want to delete this product?
+    retour_liste: Back to the list
+    retour_produit: Back to the product
+    nom: Name
+    description: Description
+    prix: Price
+    stock: Stock
+    photo: Photo
+    flash:
+        ajoute: The product has been added.
+        ajout_echec: The product could not be added, please check the form.
+        modifie: The product has been updated.
+        modification_echec: The product could not be updated, please check the form.
+        supprime: The product has been deleted.
+        suppression_echec: The product could not be deleted.

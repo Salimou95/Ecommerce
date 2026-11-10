@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'erreur.403.titre'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'erreur.403.titre'|trans }}</h1>
+    <p>{{ 'erreur.403.message'|trans }}</p>
+    <a href="{{ path('app_accueil') }}">{{ 'erreur.retour'|trans }}</a>
+{% endblock %}

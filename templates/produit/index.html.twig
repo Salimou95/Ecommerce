@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'produit.liste'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'produit.liste'|trans }}</h1>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_produit_ajouter') }}">{{ 'produit.ajouter'|trans }}</a>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'produit.photo'|trans }}</th>
+                <th>{{ 'produit.nom'|trans }}</th>
+                <th>{{ 'produit.prix'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>
+                    {% if produit.photo %}
+                        <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="{{ produit.nom }}" width="100">
+                    {% endif %}
+                </td>
+                <td><a href="{{ path('app_produit_fiche', {'id': produit.id}) }}">{{ produit.nom }}</a></td>
+                <td>{{ produit.prix }} €</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">{{ 'produit.aucun'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

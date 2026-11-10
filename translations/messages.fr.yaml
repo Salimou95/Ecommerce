@@ -1,0 +1,111 @@
+langue:
+    fr: Français
+    en: English
+
+menu:
+    accueil: Accueil
+    ajouter_produit: Ajouter un produit
+    inscription: Inscription
+    connexion: Connexion
+    deconnexion: Déconnexion
+    panier: Panier
+    compte: Mon compte
+    paniers_non_achetes: Paniers non achetés
+    inscrits_du_jour: Inscrits du jour
+
+erreur:
+    retour: Retour à l'accueil
+    404:
+        titre: Page introuvable
+        message: La page que vous cherchez n'existe pas.
+    403:
+        titre: Accès refusé
+        message: Vous n'avez pas les droits pour accéder à cette page.
+    autre:
+        titre: Une erreur est survenue
+        message: Un problème est survenu, veuillez réessayer plus tard.
+
+super_admin:
+    utilisateur: Utilisateur
+    paniers:
+        titre: Paniers non achetés
+        panier: Panier
+        aucun: Aucun panier en cours.
+    inscrits:
+        titre: Utilisateurs inscrits aujourd'hui
+        date: Date d'inscription
+        aucun: Aucun inscrit aujourd'hui.
+
+compte:
+    titre: Mon compte
+    profil: Mon profil
+    enregistrer: Enregistrer
+    historique: Historique des commandes
+    commande: Commande
+    date: Date
+    aucune_commande: Aucune commande
+    retour: Retour à mon compte
+    flash:
+        modifie: Votre profil a bien été modifié.
+        modification_echec: La modification du profil a échoué, vérifiez le formulaire.
+
+panier:
+    titre: Mon panier
+    vide: Votre panier est vide.
+    quantite: Quantité
+    montant: Montant
+    total: Total
+    ajouter: Ajouter au panier
+    supprimer: Supprimer
+    acheter: Acheter
+    flash:
+        ajoute: Le produit a bien été ajouté au panier.
+        ajout_echec: L'ajout au panier a échoué, vérifiez la quantité.
+        stock_insuffisant: Stock insuffisant pour cette quantité.
+        supprime: Le produit a bien été retiré du panier.
+        suppression_echec: La suppression du produit a échoué.
+        achete: Merci, votre commande a bien été enregistrée.
+        achat_echec: L'achat a échoué.
+        stock_insuffisant_achat: L'achat a échoué, un des produits n'a plus assez de stock.
+
+connexion:
+    titre: Connexion
+    deja_connecte: Vous êtes connecté en tant que %email%.
+    deconnexion: Se déconnecter
+    email: Email
+    mot_de_passe: Mot de passe
+    bouton: Se connecter
+
+inscription:
+    titre: Inscription
+    nom: Nom
+    prenom: Prénom
+    email: Email
+    mot_de_passe: Mot de passe
+    bouton: S'inscrire
+    flash:
+        succes: Votre compte a bien été créé, vous pouvez vous connecter.
+        echec: L'inscription a échoué, vérifiez le formulaire.
+
+produit:
+    liste: Produits
+    aucun: Aucun produit
+    ajouter: Ajouter un produit
+    modifier: Modifier
+    modifier_titre: Modifier %nom%
+    supprimer: Supprimer
+    confirmer_suppression: Voulez-vous vraiment supprimer ce produit ?
+    retour_liste: Retour à la liste
+    retour_produit: Retour au produit
+    nom: Nom
+    description: Description
+    prix: Prix
+    stock: Stock
+    photo: Photo
+    flash:
+        ajoute: Le produit a bien été ajouté.
+        ajout_echec: L'ajout du produit a échoué, vérifiez le formulaire.
+        modifie: Le produit a bien été modifié.
+        modification_echec: La modification du produit a échoué, vérifiez le formulaire.
+        supprime: Le produit a bien été supprimé.
+        suppression_echec: La suppression du produit a échoué.
