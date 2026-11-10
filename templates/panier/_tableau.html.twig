@@ -1,6 +1,6 @@
 {% set total = 0 %}
 
-<table class="table">
+<table>
     <thead>
         <tr>
             <th>{{ 'produit.nom'|trans }}</th>
@@ -25,7 +25,7 @@
                 <td>
                     <form method="post" action="{{ path('app_panier_supprimer', {'id': contenu.id}) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token('supprimer' ~ contenu.id) }}">
-                        <button class="btn">{{ 'panier.supprimer'|trans }}</button>
+                        <button class="btn-supprimer">{{ 'panier.supprimer'|trans }}</button>
                     </form>
                 </td>
             {% endif %}
@@ -34,4 +34,4 @@
     </tbody>
 </table>
 
-<p>{{ 'panier.total'|trans }} : {{ total|number_format(2, ',', ' ') }} €</p>
+<p class="total">{{ 'panier.total'|trans }} : {{ total|number_format(2, ',', ' ') }} €</p>

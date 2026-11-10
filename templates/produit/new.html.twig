@@ -7,5 +7,7 @@
 
     {{ include('produit/_form.html.twig', {'button_label': 'produit.ajouter'|trans}) }}
 
-    <a href="{{ path('app_accueil') }}">{{ 'produit.retour_liste'|trans }}</a>
+    <div class="actions">
+        <a href="{{ path('app_accueil') }}">{{ 'produit.retour_liste'|trans }}</a>
+    </div>
 {% endblock %}

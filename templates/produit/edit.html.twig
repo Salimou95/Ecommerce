@@ -7,7 +7,9 @@
 
     {{ include('produit/_form.html.twig', {'button_label': 'produit.modifier'|trans}) }}
 
-    <a href="{{ path('app_produit_fiche', {'id': produit.id}) }}">{{ 'produit.retour_produit'|trans }}</a>
+    <div class="actions">
+        <a href="{{ path('app_produit_fiche', {'id': produit.id}) }}">{{ 'produit.retour_produit'|trans }}</a>
 
-    {{ include('produit/_delete_form.html.twig') }}
+        {{ include('produit/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

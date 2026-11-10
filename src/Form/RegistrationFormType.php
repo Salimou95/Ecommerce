@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
@@ -48,10 +49,26 @@ class RegistrationFormType extends AbstractType
                         message: 'inscription.mot_de_passe_vide',
                     ),
                     new Length(
-                        min: 6,
+                        min: 12,
                         minMessage: 'inscription.mot_de_passe_court',
                         // Longueur max autorisée par Symfony pour des raisons de sécurité
                         max: 4096,
+                    ),
+                    new Regex(
+                        pattern: '/[a-z]/',
+                        message: 'inscription.mot_de_passe_minuscule',
+                    ),
+                    new Regex(
+                        pattern: '/[A-Z]/',
+                        message: 'inscription.mot_de_passe_majuscule',
+                    ),
+                    new Regex(
+                        pattern: '/[0-9]/',
+                        message: 'inscription.mot_de_passe_chiffre',
+                    ),
+                    new Regex(
+                        pattern: '/[^a-zA-Z0-9]/',
+                        message: 'inscription.mot_de_passe_special',
                     ),
                 ],
             ])

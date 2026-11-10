@@ -9,5 +9,7 @@
 
     {{ include('panier/_tableau.html.twig', {'suppression': false}) }}
 
-    <a href="{{ path('app_compte') }}">{{ 'compte.retour'|trans }}</a>
+    <div class="actions">
+        <a href="{{ path('app_compte') }}">{{ 'compte.retour'|trans }}</a>
+    </div>
 {% endblock %}

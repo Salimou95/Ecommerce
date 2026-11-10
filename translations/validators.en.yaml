@@ -2,3 +2,7 @@ inscription:
     email_deja_utilise: There is already an account with this email.
     mot_de_passe_vide: Please enter a password.
     mot_de_passe_court: Your password should be at least {{ limit }} characters.
+    mot_de_passe_minuscule: Your password must contain at least one lowercase letter.
+    mot_de_passe_majuscule: Your password must contain at least one uppercase letter.
+    mot_de_passe_chiffre: Your password must contain at least one number.
+    mot_de_passe_special: Your password must contain at least one special character.

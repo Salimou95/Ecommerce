@@ -9,15 +9,13 @@
         <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="{{ produit.nom }}" width="300">
     {% endif %}
 
-    <table class="table">
+    <p class="prix">{{ produit.prix|number_format(2, ',', ' ') }} €</p>
+
+    <table>
         <tbody>
             <tr>
                 <th>{{ 'produit.description'|trans }}</th>
                 <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>{{ 'produit.prix'|trans }}</th>
-                <td>{{ produit.prix }} €</td>
             </tr>
             <tr>
                 <th>{{ 'produit.stock'|trans }}</th>
@@ -33,11 +31,13 @@
         {{ form_end(formPanier) }}
     {% endif %}
 
-    <a href="{{ path('app_accueil') }}">{{ 'produit.retour_liste'|trans }}</a>
+    <div class="actions">
+        <a href="{{ path('app_accueil') }}">{{ 'produit.retour_liste'|trans }}</a>
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_produit_modifier', {'id': produit.id}) }}">{{ 'produit.modifier'|trans }}</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_produit_modifier', {'id': produit.id}) }}">{{ 'produit.modifier'|trans }}</a>
 
-        {{ include('produit/_delete_form.html.twig') }}
-    {% endif %}
+            {{ include('produit/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
 {% endblock %}

@@ -41,9 +41,11 @@
             {% endif %}
 
             {% if app.request.attributes.get('_route') %}
-                {% for langue in ['fr', 'en'] %}
-                    <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': langue})) }}">{{ ('langue.' ~ langue)|trans }}</a>
-                {% endfor %}
+                <span class="langues">
+                    {% for langue in ['fr', 'en'] %}
+                        <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': langue})) }}">{{ ('langue.' ~ langue)|trans }}</a>
+                    {% endfor %}
+                </span>
             {% endif %}
         </nav>
 

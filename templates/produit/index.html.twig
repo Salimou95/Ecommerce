@@ -6,33 +6,20 @@
     <h1>{{ 'produit.liste'|trans }}</h1>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_produit_ajouter') }}">{{ 'produit.ajouter'|trans }}</a>
+        <p><a href="{{ path('app_produit_ajouter') }}">{{ 'produit.ajouter'|trans }}</a></p>
     {% endif %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'produit.photo'|trans }}</th>
-                <th>{{ 'produit.nom'|trans }}</th>
-                <th>{{ 'produit.prix'|trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="produits">
         {% for produit in produits %}
-            <tr>
-                <td>
-                    {% if produit.photo %}
-                        <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="{{ produit.nom }}" width="100">
-                    {% endif %}
-                </td>
-                <td><a href="{{ path('app_produit_fiche', {'id': produit.id}) }}">{{ produit.nom }}</a></td>
-                <td>{{ produit.prix }} €</td>
-            </tr>
+            <div class="produit">
+                {% if produit.photo %}
+                    <img src="{{ asset('uploads/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+                {% endif %}
+                <h3><a href="{{ path('app_produit_fiche', {'id': produit.id}) }}">{{ produit.nom }}</a></h3>
+                <p class="prix">{{ produit.prix|number_format(2, ',', ' ') }} €</p>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="3">{{ 'produit.aucun'|trans }}</td>
-            </tr>
+            <p>{{ 'produit.aucun'|trans }}</p>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 {% endblock %}

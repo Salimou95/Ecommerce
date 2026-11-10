@@ -2,3 +2,7 @@ inscription:
     email_deja_utilise: Il existe déjà un compte avec cet email.
     mot_de_passe_vide: Veuillez saisir un mot de passe.
     mot_de_passe_court: Le mot de passe doit contenir au moins {{ limit }} caractères.
+    mot_de_passe_minuscule: Le mot de passe doit contenir au moins une minuscule.
+    mot_de_passe_majuscule: Le mot de passe doit contenir au moins une majuscule.
+    mot_de_passe_chiffre: Le mot de passe doit contenir au moins un chiffre.
+    mot_de_passe_special: Le mot de passe doit contenir au moins un caractère spécial.
